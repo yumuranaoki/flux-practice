@@ -9,7 +9,7 @@ import io.reactivex.subjects.BehaviorSubject
 
 class CountActionStore(dispatcher: Dispatcher<CountAction>) : Store<CountAction>(dispatcher) {
     // this is so-called state
-    // 現在のcountもここで管理したい
+    var numberState: Int = 0
     private val number: BehaviorSubject<Int> = BehaviorSubject.create()
 
     fun observeNumber(): Observable<Int> = number.hide()
@@ -17,10 +17,12 @@ class CountActionStore(dispatcher: Dispatcher<CountAction>) : Store<CountAction>
     override fun handleAction(action: CountAction) {
         when (action) {
             is Increment -> {
-                number.onNext(1)
+                numberState += 1
+                number.onNext(numberState)
             }
             is Decrement -> {
-                number.onNext(-1)
+                numberState -= 1
+                number.onNext(numberState)
             }
         }
     }
