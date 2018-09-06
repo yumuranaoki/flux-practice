@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">flux-practice</string>
+    <string name="count">0</string>
+    <string name="decrement">decrement</string>
+    <string name="increment">increment</string>
+</resources>
