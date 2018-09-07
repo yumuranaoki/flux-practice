@@ -7,7 +7,7 @@ import com.example.yumuranaoki.flux_practice.flux.action.Increment
 import io.reactivex.Observable
 import io.reactivex.subjects.BehaviorSubject
 
-class CountActionStore(dispatcher: Dispatcher<CountAction>) : Store<CountAction>(dispatcher) {
+class CountStore(dispatcher: Dispatcher<CountAction>) : Store<CountAction>(dispatcher) {
     // this is so-called state
     var numberState: Int = 0
     private val number: BehaviorSubject<Int> = BehaviorSubject.create()

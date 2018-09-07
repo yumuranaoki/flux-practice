@@ -5,12 +5,12 @@ import com.example.yumuranaoki.flux_practice.flux.Dispatcher
 import com.example.yumuranaoki.flux_practice.flux.action.CountAction
 import com.example.yumuranaoki.flux_practice.flux.actionCreator.CountActionCreator
 
-class CountViewModel(val countView: CountViewContract, val dispatcher: Dispatcher<CountAction>) {
+class CountViewModel(val countView: CountViewContract, val countActionCreator: CountActionCreator) {
     fun onClickIncButton() {
-        CountActionCreator(dispatcher).increment()
+        countActionCreator.increment()
     }
 
     fun onClickDecButton() {
-        CountActionCreator(dispatcher).decrement()
+        countActionCreator.decrement()
     }
 }
